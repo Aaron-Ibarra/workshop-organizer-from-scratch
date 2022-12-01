@@ -35,7 +35,7 @@ export async function getTeams() {
 }
 
 export async function createPlayer(player) {
-    const response = await client.from('team_members').insert();
+    const response = await client.from('team_players').insert(player);
 
     return checkError(response);
 }

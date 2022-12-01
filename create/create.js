@@ -1,4 +1,4 @@
-import { getTeams } from '../fetch-utils.js';
+import { createPlayer, getTeams } from '../fetch-utils.js';
 
 const form = document.querySelector('form');
 const teamSelect = document.querySelector('select');
@@ -17,5 +17,11 @@ window.addEventListener('load', async () => {
 
 form.addEventListener('submit', async () => {
     const data = new FormData(form);
-    // const playerName = data.get()
+    const playerName = data.get('player-name');
+    const team = data.get('team-id');
+
+    await createPlayer({
+        name: playerName,
+        team_id: team,
+    });
 });
