@@ -20,11 +20,14 @@ async function fetchAndDisplayTeams() {
 
     for (let team of teams) {
         const teamEl = createTeam(team);
-        for (let member of team.team_members) {
-            const teamMemberEl = document.createElement('div');
-            teamMemberEl.textContent = `Player Name: ${member.name}`;
-            teamEl.append(teamMemberEl);
+        const teamPlayersEl = document.createElement('div');
+        for (let player of team.team_players) {
+            const teamPlayerEl = document.createElement('div');
+            teamPlayerEl.textContent = `Player Name: ${player.name}`;
+
+            teamPlayersEl.append(teamPlayerEl);
         }
+        teamEl.append(teamPlayersEl);
         teamsEl.append(teamEl);
     }
 }
