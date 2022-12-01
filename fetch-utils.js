@@ -29,7 +29,7 @@ export async function signOutUser() {
 
 /* Data functions */
 export async function getTeams() {
-    const response = await client.from('esports-teams').select('*');
+    const response = await client.from('esports-teams').select('*, team_members(*)');
 
     return checkError(response);
 }
