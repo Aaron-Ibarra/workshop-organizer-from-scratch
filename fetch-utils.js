@@ -28,3 +28,11 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+export async function getTeams() {
+    const response = await client.from('esports-teams').select('*');
+
+    return checkError(response);
+}
+function checkError(response) {
+    return response.error ? console.error(response.error) : response.data;
+}
