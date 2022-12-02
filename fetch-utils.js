@@ -40,6 +40,12 @@ export async function createPlayer(player) {
     return checkError(response);
 }
 
+export async function removePlayer(id) {
+    const response = await client.from('team_players').delete().match({ id: id }).single();
+
+    return checkError(response);
+}
+
 function checkError(response) {
     return response.error ? console.error(response.error) : response.data;
 }

@@ -15,7 +15,9 @@ window.addEventListener('load', async () => {
     }
 });
 
-form.addEventListener('submit', async () => {
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     const data = new FormData(form);
     const playerName = data.get('player-name');
     const team = data.get('team-id');
@@ -24,4 +26,6 @@ form.addEventListener('submit', async () => {
         name: playerName,
         team_id: team,
     });
+
+    location.replace('../');
 });
