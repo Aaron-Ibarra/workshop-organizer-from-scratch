@@ -20,10 +20,12 @@ form.addEventListener('submit', async (e) => {
 
     const data = new FormData(form);
     const playerName = data.get('player-name');
+    const nickname = data.get('player-nickname');
     const team = data.get('team-id');
 
     await createPlayer({
         name: playerName,
+        ign: nickname,
         team_id: team,
     });
 

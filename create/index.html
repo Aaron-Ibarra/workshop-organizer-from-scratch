@@ -14,6 +14,12 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap"
+            rel="stylesheet"
+        />
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap"
@@ -26,22 +32,24 @@
 
     <body>
         <header class="page-header">
-            <img class="logo" src="/assets/html_css_js.png" />
+            <img class="logo" src="/assets/alchemy-favicon.png" />
+            <img class="logo" src="/assets/legends.webp" />
             <p class="title">Add a team member</p>
             <nav>
                 <a href="/">Back to teams</a>
             </nav>
         </header>
 
-        <main>
+        <main id="create-page">
             <h3>Add a member to a team</h3>
             <form id="player-form">
                 <label>
                     Name:
                     <input name="player-name" />
                 </label>
+                <label> Nickname: <input name="player-nickname" </label>
                 <label>
-                    will play
+                    Team:
                     <select name="team-id"></select>
                 </label>
                 <button>Enter</button>

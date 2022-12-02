@@ -21,11 +21,11 @@ async function fetchAndDisplayTeams() {
 
     for (let team of teams) {
         const teamEl = createTeam(team);
-        const teamPlayersEl = document.createElement('div');
+        const teamPlayersEl = document.createElement('ul');
         for (let player of team.team_players) {
-            const teamPlayerEl = document.createElement('div');
+            const teamPlayerEl = document.createElement('li');
             teamPlayerEl.classList.add('player');
-            teamPlayerEl.textContent = `Player Name: ${player.name}`;
+            teamPlayerEl.textContent = `Player Name: ${player.name} || Nickname: ${player.ign}`;
 
             teamPlayerEl.addEventListener('click', async () => {
                 await removePlayer(player.id);
