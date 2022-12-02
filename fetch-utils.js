@@ -42,7 +42,6 @@ export async function createPlayer(player) {
 
 export async function removePlayer(id) {
     const response = await client.from('team_players').delete().match({ id: id }).single();
-    q;
     return checkError(response);
 }
 
