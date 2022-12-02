@@ -1,5 +1,6 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://gvhgebiiqjezrhkmcque.supabase.co';
+const SUPABASE_KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2aGdlYmlpcWplenJoa21jcXVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgxMDgwMzcsImV4cCI6MTk4MzY4NDAzN30.IPXrWCU6kYe9JaHUfGPnQcuwKDHonUpaRuCgs3uCEok';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
@@ -27,3 +28,23 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+export async function getTeams() {
+    const response = await client.from('esports-teams').select('*, team_players(*)');
+
+    return checkError(response);
+}
+
+export async function createPlayer(player) {
+    const response = await client.from('team_players').insert(player);
+
+    return checkError(response);
+}
+
+export async function removePlayer(id) {
+    const response = await client.from('team_players').delete().match({ id: id }).single();
+    return checkError(response);
+}
+
+function checkError(response) {
+    return response.error ? console.error(response.error) : response.data;
+}
