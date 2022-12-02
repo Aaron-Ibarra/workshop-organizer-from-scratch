@@ -6,7 +6,6 @@ const teamSelect = document.querySelector('select');
 window.addEventListener('load', async () => {
     const teams = await getTeams();
     for (let team of teams) {
-        console.log(team);
         const teamOption = document.createElement('option');
         teamOption.textContent = team.name;
         teamOption.value = team.id;
